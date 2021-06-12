@@ -1,0 +1,20 @@
+.user-box {
+  padding: 10px;
+  border: 1px solid #fff;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.user-box:hover {
+  background: #ffb400;
+}
+
+.number-of-post {
+  float: right;
+  font-weight: bold;
+}
+
+.selected {
+  background: #ffb400;
+}

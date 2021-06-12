@@ -1,0 +1,123 @@
+.control-bar {
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  background: #000;
+  border-bottom: 4px solid #ffb400;
+}
+.control-bar-left,
+.control-bar-right {
+  width: 100%;
+  flex: 0 0 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.filter-icon-wrapper {
+  color: #fff;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.filter-label {
+  text-transform: uppercase;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+.filter-icon {
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  padding: 5px;
+}
+
+.filter-icon:hover {
+  color: #ffb400;
+}
+
+.user-search-input,
+.post-search-input {
+  width: 100%;
+  height: 35px;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.main-section {
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  margin: 0 auto 30px auto;
+}
+
+.user-section {
+  width: 100%;
+  flex: 0 0 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #000;
+  color: #fff;
+}
+
+.post-section {
+  width: 100%;
+  flex: 0 0 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px 0 rgb(0 0 0 / 20%);
+}
+
+@media screen and (min-width: 768px) {
+  .user-section,
+  .control-bar-left {
+    width: 30%;
+    flex: 0 0 30%;
+  }
+  .post-section,
+  .control-bar-right {
+    width: 70%;
+    flex: 0 0 70%;
+  }
+  .post-search-input {
+    width: 38.7%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .user-section,
+  .control-bar-left {
+    width: 25%;
+    flex: 0 0 25%;
+  }
+  .post-section,
+  .control-bar-right {
+    width: 75%;
+    flex: 0 0 75%;
+  }
+  .post-search-input {
+    width: 29.5%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .user-section,
+  .control-bar-left {
+    width: 20%;
+    flex: 0 0 20%;
+  }
+  .post-section,
+  .control-bar-right {
+    width: 80%;
+    flex: 0 0 80%;
+  }
+  .post-search-input {
+    width: 22%;
+  }
+}

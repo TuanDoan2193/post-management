@@ -1,0 +1,15 @@
+.post-message {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: justify;
+  margin-bottom: 25px;
+  box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
+}
+
+.post-time {
+  background: #000;
+  color: #fff;
+  padding: 5px 20px;
+  box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
+}

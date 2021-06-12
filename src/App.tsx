@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import PostList from "./pages/PostList/PostList"
+import Login from "./pages/Login/Login"
+import AppProvider from "./AppContext"
+import ProtectedRoute from "./components/ProtectedRoute"
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from "react-router-dom"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <AppProvider>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <ProtectedRoute path="/post-list" component={PostList} />
+          <Redirect from="*" to={"/"} />
+        </Switch>
+      </Router>
+    </AppProvider>
+  )
 }
 
-export default App;
+export default App
