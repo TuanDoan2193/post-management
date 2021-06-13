@@ -1,6 +1,6 @@
 Hi! Below are some infos that might be helpful for testing/checking the application.
 
-1. Structure of the application:
+**1. Structure of the application:**
 
 -Login page (default): /
 
@@ -10,7 +10,7 @@ Hi! Below are some infos that might be helpful for testing/checking the applicat
 
 **Protected routes can't be access if the user is not logged in. Once logged in, user can access directly to any page within one session. (Token is stored in session storage and is used as authentication key).
 
-2. Features:
+**2. Features:**
 
 -Login page to take in user name and email, requesting a token to fetch data, then redirecting to post list page.
 
@@ -30,7 +30,7 @@ Hi! Below are some infos that might be helpful for testing/checking the applicat
 
 -A custom debounce hook is used to take values from inputs only if the user has stopped typing for 0.2s (can be set to another value as well). This could improve performance a bit.
 
-3. What are used in the project?
+**3. What are used in the project?**
 
 -React, TS and basic CSS.
 
