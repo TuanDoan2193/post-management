@@ -1,46 +1,26 @@
-# Getting Started with Create React App
+Hi! Below are some infos that might be helpful for testing/checking the application.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Structure of the application:
+-Login page (default): /
+-Post list page (protected): /post-list
+-Post list page with parameter (protected): /post-list/user_0
 
-## Available Scripts
+**Protected routes can't be access if the user is not logged in. Once logged in, user can access directly to any page within one session. (Token is stored in session storage and is used as authentication key).
 
-In the project directory, you can run:
+2. Features:
+-Login page to take in user name and email, requesting a token to fetch data, then redirecting to post list page.
+-Post list that shows a list of users on the left side (sorted by name), and current post on the right side. By default it will show all posts.
+-When a user name is clicked, parameter got updated, and post list got filtered.
+-User name button has active state when it's clicked.
+-Url with parameter can be accessed directly (deep link as requested in the requirement). Will returned a filtered post list. For example, /post-list/user_0 will return a post list of only that user.
+-Arrow buttons to sort posts by created_time.
+-Search input to search for users.
+-Search input to search for posts.
+-A custom debounce hook is used to take values from inputs only if the user has stopped typing for 0.2s (can be set to another value as well). This could improve performance a bit.
 
-### `yarn start`
+3. What are used in the project?
+-React, TS and basic CSS.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+That's it! Thank you for your time. And hope to hear from you soon :).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Tuan Doan.
