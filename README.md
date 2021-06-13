@@ -9,7 +9,9 @@ Hi! Below are some infos that might be helpful for testing/checking the applicat
 
 2. Features:
 -Login page to take in user name and email, requesting a token to fetch data, then redirecting to post list page.
+
 -Post list that shows a list of users on the left side (sorted by name), and current post on the right side. By default it will show all posts.
+
 -When a user name is clicked, parameter got updated, and post list got filtered.
 -User name button has active state when it's clicked.
 -Url with parameter can be accessed directly (deep link as requested in the requirement). Will returned a filtered post list. For example, /post-list/user_0 will return a post list of only that user.
