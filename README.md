@@ -34,6 +34,3 @@ Hi! Below are some infos that might be helpful for testing/checking the applicat
 
 -React, TS and basic CSS.
 
-That's it! Thank you for your time. And hope to hear from you soon :).
-
-Tuan Doan.
