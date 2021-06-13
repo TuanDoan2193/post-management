@@ -1,39 +1,30 @@
-import React from "react"
+import React, { useState } from "react"
 import "./PostList.css"
-import { usePost, PostProps } from "../../AppContext"
-import SinglePost from "../../components/SinglePost/SinglePost"
-import SingleUser from "../../components/SingleUser/SingleUser"
-import { useLocation } from "react-router-dom"
+import { useAppData } from "../../providers/AppContext"
+import SinglePost from "../../components/SinglePost"
+import SingleUser from "../../components/SingleUser"
+import { useParams } from "react-router-dom"
+import useDebounce from "../../hooks/useDebouce"
 
 const PostList = () => {
-  const { state, dispatch } = usePost()
-  const posts = state.displayedPosts
-  const users = state.searchedUsers
+  const { state, dispatch } = useAppData()
+  const posts = state.posts
+  const users = state.users
+  //Get id from params to filter/activate selected user.
+  const { id } = useParams<{ id: string }>()
 
-  // const location = useLocation()
-  // const queryString = location.search.replace("?user=", "").replace("%20", " ")
-  // if (queryString != "") {
-  //   console.log(1)
-  //   dispatch({
-  //     type: "SELECT_USER",
-  //     payload: queryString,
-  //   })
-  //   dispatch({
-  //     type: "FILTER_POSTS",
-  //     payload: queryString,
-  //   })
-  // }
+  const [postSearchInput, setPostSearchInput] = useState("")
+  const [userSearchInput, setUserSearchInput] = useState("")
+  //Get debounced value from search input
+  const debouncedPostSearchInput = useDebounce(postSearchInput, 200)
+  const debouncedUserSearchInput = useDebounce(userSearchInput, 200)
+
   return (
     <>
       <div className="control-bar">
         <div className="control-bar-left">
           <input
-            onChange={(e) =>
-              dispatch({
-                type: "SEARCH_USER",
-                payload: e.target.value,
-              })
-            }
+            onChange={(e) => setUserSearchInput(e.target.value.toLowerCase())}
             className="user-search-input"
             placeholder="Search user"
             type="text"
@@ -60,12 +51,7 @@ const PostList = () => {
             ></i>
           </span>
           <input
-            onChange={(e) =>
-              dispatch({
-                type: "SEARCH_POST",
-                payload: e.target.value,
-              })
-            }
+            onChange={(e) => setPostSearchInput(e.target.value.toLowerCase())}
             className="post-search-input"
             placeholder="Search post"
             type="text"
@@ -74,14 +60,34 @@ const PostList = () => {
       </div>
       <div className="main-section">
         <div className="user-section">
-          {Object.entries(users).map((user: any, index) => {
-            return <SingleUser key={index} user={user} />
-          })}
+          {users
+            .filter((user) =>
+              user.name.toLowerCase().includes(debouncedUserSearchInput)
+            )
+            .map((user, index) => {
+              return <SingleUser key={index} id={id} user={user} />
+            })}
         </div>
         <div className="post-section">
-          {posts.map((post: PostProps, index) => {
-            return <SinglePost key={index} post={post} />
-          })}
+          {/* Return all if there isn't id in params. Otherwise filtering posts on id and search input. */}
+          {posts.length > 0 ? (
+            <>
+              {posts
+                .filter((post) =>
+                  id
+                    ? id === post.from_id &&
+                      post.message
+                        .toLowerCase()
+                        .includes(debouncedPostSearchInput)
+                    : true
+                )
+                .map((post, index) => {
+                  return <SinglePost key={index} post={post} />
+                })}
+            </>
+          ) : (
+            <div>Loading...</div>
+          )}
         </div>
       </div>
     </>

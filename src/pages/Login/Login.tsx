@@ -1,16 +1,16 @@
 import React, { useState } from "react"
 import axios from "axios"
 import "./Login.css"
-import { usePost } from "../../AppContext"
+import { useAppData } from "../../providers/AppContext"
 import { useHistory } from "react-router-dom"
 
 const Login = () => {
-  const [name, setName] = useState<string>("")
-  const [email, setEmail] = useState<string>("")
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
   const client_id = "ju16a6m81mhid5ue1z3v2g0uh"
   let history = useHistory()
 
-  const { dispatch } = usePost()
+  const { dispatch } = useAppData()
 
   const validateEmail = (value: string) => {
     if (
@@ -34,7 +34,7 @@ const Login = () => {
             email,
           }
         )
-        await dispatch({
+        dispatch({
           type: "INIT_TOKEN",
           payload: response.data.data.sl_token,
         })

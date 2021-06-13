@@ -1,9 +1,9 @@
 import React from "react"
-import "./SinglePost.css"
-import { PostProps } from "../../AppContext"
+import "./SinglePost.style.css"
+import { Post } from "../../providers/AppContext"
 
-const SinglePost = ({ post }: { post: PostProps }) => {
-  const options: any = {
+const SinglePost = ({ post }: { post: Post }) => {
+  const options: Object = {
     year: "numeric",
     month: "long",
     day: "numeric",

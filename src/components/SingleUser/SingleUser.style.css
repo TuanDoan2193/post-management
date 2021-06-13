@@ -5,16 +5,17 @@
   cursor: pointer;
   transition: all 0.3s ease-out;
 }
-
+.user-link {
+  text-decoration: none;
+  color: #fff;
+}
 .user-box:hover {
   background: #ffb400;
 }
-
 .number-of-post {
   float: right;
   font-weight: bold;
 }
-
 .selected {
   background: #ffb400;
 }
